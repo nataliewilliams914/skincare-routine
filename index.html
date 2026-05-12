@@ -1,56 +1,76 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Skincare">
+<title>My Skincare Routine</title>
+<link id="touch-icon" rel="apple-touch-icon" href="">
+<script>
+(function(){
+  try{
+    var c=document.createElement('canvas');
+    c.width=180;c.height=180;
+    var x=c.getContext('2d');
+    x.fillStyle='#4a9b6f';
+    if(x.roundRect){x.roundRect(0,0,180,180,36);x.fill();}
+    else{x.fillRect(0,0,180,180);}
+    x.font='110px serif';
+    x.textAlign='center';
+    x.textBaseline='middle';
+    x.fillText('\uD83C\uDF38',90,95);
+    document.getElementById('touch-icon').href=c.toDataURL('image/png');
+  }catch(e){}
+})();
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans)}
-h2.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.outer{padding:1rem 0}
-.header{margin-bottom:1.5rem}
-.header h1{font-size:20px;font-weight:500;color:var(--color-text-primary)}
-.header p{font-size:13px;color:var(--color-text-secondary);margin-top:4px;line-height:1.5}
-.day-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem}
-.day-tab{padding:6px 12px;font-size:13px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);cursor:pointer;color:var(--color-text-secondary);background:var(--color-background-primary);transition:all .15s}
-.day-tab.active{background:var(--color-background-secondary);color:var(--color-text-primary);border-color:var(--color-border-primary);font-weight:500}
-.ampm-tabs{display:flex;gap:8px;margin-bottom:1.25rem}
-.ampm-tab{padding:6px 20px;font-size:13px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);cursor:pointer;color:var(--color-text-secondary);background:var(--color-background-primary)}
-.ampm-tab.active{background:var(--color-background-secondary);color:var(--color-text-primary);border-color:var(--color-border-primary);font-weight:500}
-.routine-list{display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem}
-.step{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg)}
-.step-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;margin-top:1px}
-.step-body{flex:1}
-.step-name{font-size:14px;font-weight:500;color:var(--color-text-primary);line-height:1.3}
-.step-product{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
-.step-tip{font-size:11.5px;color:var(--color-text-tertiary);margin-top:4px;line-height:1.5;font-style:italic}
-.badge{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:99px;margin-left:8px;vertical-align:middle}
-.badge-active{background:var(--color-background-warning);color:var(--color-text-warning)}
-.badge-gentle{background:var(--color-background-success);color:var(--color-text-success)}
-.badge-eye{background:var(--color-background-info);color:var(--color-text-info)}
-.badge-special{background:var(--color-background-danger);color:var(--color-text-danger)}
-.mask-note{padding:12px 14px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);font-size:12.5px;color:var(--color-text-secondary);line-height:1.6}
-.mask-note strong{color:var(--color-text-primary);font-weight:500}
-.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem}
-.legend-item{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--color-text-secondary)}
-.dot{width:8px;height:8px;border-radius:50%}
-.num-cleanse{background:#7F77DD}
-.num-prep{background:#1D9E75}
-.num-active{background:#BA7517}
-.num-hydrate{background:#378ADD}
-.num-seal{background:#D4537E}
-.num-protect{background:#63991c}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f5f2;min-height:100vh}
+.outer{max-width:680px;margin:0 auto;padding:1.25rem 1rem 3rem}
+h1{font-size:20px;font-weight:600;color:#1a1a1a}
+.subtitle{font-size:13px;color:#777;margin-top:4px;line-height:1.5}
+.header{margin-bottom:1.25rem}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.1rem}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:#666}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.day-tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem}
+.day-tab{padding:6px 11px;font-size:13px;border:1px solid #ddd;border-radius:20px;cursor:pointer;color:#666;background:#fff;transition:all .15s;-webkit-tap-highlight-color:transparent}
+.day-tab.active{background:#2d6a4f;color:#fff;border-color:#2d6a4f;font-weight:500}
+.ampm-tabs{display:flex;gap:8px;margin-bottom:1.1rem}
+.ampm-tab{padding:7px 22px;font-size:13px;border:1px solid #ddd;border-radius:20px;cursor:pointer;color:#666;background:#fff;-webkit-tap-highlight-color:transparent}
+.ampm-tab.active{background:#2d6a4f;color:#fff;border-color:#2d6a4f;font-weight:500}
+.routine-list{display:flex;flex-direction:column;gap:7px;margin-bottom:1.25rem}
+.step{display:flex;align-items:flex-start;gap:11px;padding:11px 13px;background:#fff;border:1px solid #e8e4e0;border-radius:14px}
+.step-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;margin-top:1px}
+.step-body{flex:1;min-width:0}
+.step-name{font-size:14px;font-weight:600;color:#1a1a1a;line-height:1.3}
+.step-product{font-size:11.5px;color:#888;margin-top:2px}
+.step-tip{font-size:11px;color:#aaa;margin-top:4px;line-height:1.5;font-style:italic}
+.badge{display:inline-block;font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:99px;margin-left:7px;vertical-align:middle;text-transform:uppercase;letter-spacing:.3px}
+.badge-active{background:#fff3cd;color:#856404}
+.badge-gentle{background:#d1e7dd;color:#0a5132}
+.badge-eye{background:#cfe2ff;color:#084298}
+.mask-note{padding:12px 14px;background:#f0f8f4;border:1px solid #b7dfc9;border-radius:14px;font-size:12.5px;color:#444;line-height:1.6}
+.mask-note strong{color:#2d6a4f;font-weight:600}
 </style>
-<h2 class="sr-only">Weekly skincare routine planner showing morning and evening steps for each day, with product layering order and tips.</h2>
+</head>
+<body>
 <div class="outer">
 <div class="header">
-  <h1>Your weekly skincare routine</h1>
-  <p>Tap a day and AM/PM to see your full routine in order. Each step is timed for absorption and paired for max effectiveness.</p>
+  <h1>🌸 My skincare routine</h1>
+  <p class="subtitle">Tap a day and AM/PM to see your full routine in order.</p>
 </div>
 
 <div class="legend">
-  <div class="legend-item"><div class="dot num-cleanse"></div>Cleanse</div>
-  <div class="legend-item"><div class="dot num-prep"></div>Prep/tone</div>
-  <div class="legend-item"><div class="dot num-active"></div>Active treatment</div>
-  <div class="legend-item"><div class="dot num-hydrate"></div>Hydrate</div>
-  <div class="legend-item"><div class="dot num-seal"></div>Seal/moisturize</div>
-  <div class="legend-item"><div class="dot num-protect"></div>Protect/SPF</div>
+  <div class="legend-item"><div class="dot" style="background:#7F77DD"></div>Cleanse</div>
+  <div class="legend-item"><div class="dot" style="background:#1D9E75"></div>Prep/tone</div>
+  <div class="legend-item"><div class="dot" style="background:#BA7517"></div>Active</div>
+  <div class="legend-item"><div class="dot" style="background:#378ADD"></div>Hydrate</div>
+  <div class="legend-item"><div class="dot" style="background:#D4537E"></div>Seal</div>
+  <div class="legend-item"><div class="dot" style="background:#639922"></div>Protect</div>
 </div>
 
 <div class="day-tabs">
@@ -73,222 +93,209 @@ h2.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip
 </div>
 
 <script>
-const C = {cleanse:'#7F77DD', prep:'#1D9E75', active:'#BA7517', hydrate:'#378ADD', seal:'#D4537E', protect:'#639922'};
-const CT = {cleanse:'#3C3489', prep:'#085041', active:'#633806', hydrate:'#0C447C', seal:'#72243E', protect:'#27500A'};
-
-const PRODUCTS = {
-  wash: {name:'CeraVe foaming facial cleanser', tip:'Massage 60 sec, rinse thoroughly. Removes oil without stripping.'},
-  bha: {name:'Glow Recipe watermelon BHA/PHA toner', tip:'Apply on damp skin with a cotton pad or pat in. Wait ~1 min before next step — low pH needs to work first.'},
-  vitc: {name:'Cocokind vitamin C glow serum', tip:'Apply to slightly damp skin. Wait 1–2 min for pH-sensitive actives to absorb before layering on top.'},
-  niac: {name:'The Ordinary niacinamide', tip:'Pat in gently. Excellent for oil control and pore appearance. Goes after acids/vitamin C.'},
-  ha: {name:'The Ordinary hyaluronic acid + B5', tip:'Apply to damp skin — HA needs moisture to plump. Press, don\'t rub.'},
-  pdrn_toner: {name:'Medicube PDRN milky toner', tip:'Press into skin with hands on slightly damp face. PDRN absorbs best close to clean skin before heavier serums.'},
-  phyto: {name:'Byoma phytomucin serum', tip:'Lightweight barrier-supporting serum. Layer after water-based actives, before moisturizer.'},
-  retinol: {name:'Cocokind beginner retinol', tip:'Start on dry skin. Use pea-size amount. Follow with moisturizer to buffer. Skip on exfoliant nights.'},
-  caffeine: {name:'The Ordinary caffeine undereye solution', tip:'Pat gently around orbital bone. Thin solutions go before thicker eye creams.'},
-  pdrn_eye: {name:'Medicube PDRN eye cream', tip:'Tap (don\'t rub) with ring finger. Goes after caffeine solution — thicker formula seals it in.'},
-  cicaplast: {name:'La Roche-Posay cicaplast', tip:'Barrier repair + soothing. On retinol nights, layer this over retinol to buffer irritation.'},
-  cetaphil: {name:'Cetaphil moisturizing lotion', tip:'Lock in all the actives. Seals hydration and prevents water loss.'},
-  spf: {name:'Beauty of Joseon relief sun SPF', tip:'Always the LAST step. Wait 1–2 min after moisturizer. Reapply every 2 hrs if outdoors.'},
+var PRODUCTS={
+  wash:{name:'CeraVe foaming facial cleanser',tip:'Massage 60 sec, rinse thoroughly. Removes oil without stripping.'},
+  bha:{name:'Glow Recipe watermelon BHA/PHA toner',tip:'Apply on damp skin with a cotton pad or pat in. Wait ~1 min before next step — low pH needs to work first.'},
+  vitc:{name:'Cocokind vitamin C glow serum',tip:'Apply to slightly damp skin. Wait 1–2 min before layering on top.'},
+  niac:{name:'The Ordinary niacinamide',tip:'Pat in gently. Excellent for oil control and pore appearance. Goes after acids/vitamin C.'},
+  ha:{name:'The Ordinary hyaluronic acid + B5',tip:'Apply to damp skin — HA needs moisture to plump. Press, don\'t rub.'},
+  pdrn_toner:{name:'Medicube PDRN milky toner',tip:'Press into skin with hands on slightly damp face. PDRN absorbs best close to clean skin before heavier serums.'},
+  phyto:{name:'Byoma phytomucin serum',tip:'Lightweight barrier-supporting serum. Layer after water-based actives, before moisturizer.'},
+  retinol:{name:'Cocokind beginner retinol',tip:'Start on dry skin. Use pea-size amount. Follow with moisturizer to buffer. Skip on exfoliant nights.'},
+  caffeine:{name:'The Ordinary caffeine undereye solution',tip:'Pat gently around orbital bone. Thin solutions go before thicker eye creams.'},
+  pdrn_eye:{name:'Medicube PDRN eye cream',tip:'Tap (don\'t rub) with ring finger. Goes after caffeine solution — thicker formula seals it in.'},
+  cicaplast:{name:'La Roche-Posay cicaplast',tip:'Barrier repair + soothing. On retinol nights, layer this over retinol to buffer irritation.'},
+  cetaphil:{name:'Cetaphil moisturizing lotion',tip:'Lock in all the actives. Seals hydration and prevents water loss.'},
+  spf:{name:'Beauty of Joseon relief sun SPF',tip:'Always the LAST step. Wait 1–2 min after moisturizer. Reapply every 2 hrs if outdoors.'}
 };
 
-const ROUTINES = {
-  0: { // Monday
-    am: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'BHA/PHA toner', p:'bha', badge:'active', badgeText:'exfoliant'},
-      {type:'active', label:'Vitamin C serum', p:'vitc', badge:'active', badgeText:'antioxidant'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'hydrate', label:'Niacinamide', p:'niac'},
-      {type:'hydrate', label:'Caffeine undereye', p:'caffeine', badge:'eye', badgeText:'eye'},
-      {type:'hydrate', label:'PDRN eye cream', p:'pdrn_eye', badge:'eye', badgeText:'eye'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
-      {type:'protect', label:'SPF — last step!', p:'spf'},
+var ROUTINES={
+  0:{
+    am:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'BHA/PHA toner',p:'bha',badge:'active',badgeText:'exfoliant'},
+      {type:'active',label:'Vitamin C serum',p:'vitc',badge:'active',badgeText:'antioxidant'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'hydrate',label:'Niacinamide',p:'niac'},
+      {type:'hydrate',label:'Caffeine undereye',p:'caffeine',badge:'eye',badgeText:'eye'},
+      {type:'hydrate',label:'PDRN eye cream',p:'pdrn_eye',badge:'eye',badgeText:'eye'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'},
+      {type:'protect',label:'SPF — last step!',p:'spf'}
     ],
-    pm: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'PDRN milky toner', p:'pdrn_toner'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'active', label:'Beginner retinol', p:'retinol', badge:'active', badgeText:'retinoid'},
-      {type:'seal', label:'Cicaplast', p:'cicaplast', tip:'Doubles as retinol buffer + barrier repair tonight.'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
+    pm:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'PDRN milky toner',p:'pdrn_toner'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'active',label:'Beginner retinol',p:'retinol',badge:'active',badgeText:'retinoid'},
+      {type:'seal',label:'Cicaplast',p:'cicaplast',tip:'Doubles as retinol buffer + barrier repair tonight.'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'}
     ],
-    mask: null
+    mask:null
   },
-  1: { // Tuesday
-    am: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'active', label:'Vitamin C serum', p:'vitc', badge:'active', badgeText:'antioxidant'},
-      {type:'hydrate', label:'Niacinamide', p:'niac'},
-      {type:'hydrate', label:'Phytomucin serum', p:'phyto', badge:'gentle', badgeText:'barrier'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'hydrate', label:'Caffeine undereye', p:'caffeine', badge:'eye', badgeText:'eye'},
-      {type:'hydrate', label:'PDRN eye cream', p:'pdrn_eye', badge:'eye', badgeText:'eye'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
-      {type:'protect', label:'SPF — last step!', p:'spf'},
+  1:{
+    am:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'active',label:'Vitamin C serum',p:'vitc',badge:'active',badgeText:'antioxidant'},
+      {type:'hydrate',label:'Niacinamide',p:'niac'},
+      {type:'hydrate',label:'Phytomucin serum',p:'phyto',badge:'gentle',badgeText:'barrier'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'hydrate',label:'Caffeine undereye',p:'caffeine',badge:'eye',badgeText:'eye'},
+      {type:'hydrate',label:'PDRN eye cream',p:'pdrn_eye',badge:'eye',badgeText:'eye'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'},
+      {type:'protect',label:'SPF — last step!',p:'spf'}
     ],
-    pm: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'PDRN milky toner', p:'pdrn_toner'},
-      {type:'active', label:'Niacinamide', p:'niac', tip:'Rest night from retinol. Niacinamide helps skin recover.'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'seal', label:'Phytomucin serum', p:'phyto'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
+    pm:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'PDRN milky toner',p:'pdrn_toner'},
+      {type:'active',label:'Niacinamide',p:'niac',tip:'Rest night from retinol. Niacinamide helps skin recover.'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'seal',label:'Phytomucin serum',p:'phyto'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'}
     ],
-    mask: {text:'✨ Optional tonight: <strong>Medicube PDRN jelly overnight mask</strong> — apply as the very last step instead of or over Cetaphil. Leave on overnight. Great for a boost of collagen + hydration on a rest-from-retinol night.'}
+    mask:{text:'✨ Optional tonight: <strong>Medicube PDRN jelly overnight mask</strong> — apply as the very last step instead of or over Cetaphil. Leave on overnight. Great for a boost of collagen + hydration on a rest-from-retinol night.'}
   },
-  2: { // Wednesday
-    am: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'BHA/PHA toner', p:'bha', badge:'active', badgeText:'exfoliant'},
-      {type:'active', label:'Vitamin C serum', p:'vitc', badge:'active', badgeText:'antioxidant'},
-      {type:'hydrate', label:'Niacinamide', p:'niac'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'hydrate', label:'Caffeine undereye', p:'caffeine', badge:'eye', badgeText:'eye'},
-      {type:'hydrate', label:'PDRN eye cream', p:'pdrn_eye', badge:'eye', badgeText:'eye'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
-      {type:'protect', label:'SPF — last step!', p:'spf'},
+  2:{
+    am:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'BHA/PHA toner',p:'bha',badge:'active',badgeText:'exfoliant'},
+      {type:'active',label:'Vitamin C serum',p:'vitc',badge:'active',badgeText:'antioxidant'},
+      {type:'hydrate',label:'Niacinamide',p:'niac'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'hydrate',label:'Caffeine undereye',p:'caffeine',badge:'eye',badgeText:'eye'},
+      {type:'hydrate',label:'PDRN eye cream',p:'pdrn_eye',badge:'eye',badgeText:'eye'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'},
+      {type:'protect',label:'SPF — last step!',p:'spf'}
     ],
-    pm: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'PDRN milky toner', p:'pdrn_toner'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'active', label:'Beginner retinol', p:'retinol', badge:'active', badgeText:'retinoid'},
-      {type:'seal', label:'Cicaplast', p:'cicaplast'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
+    pm:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'PDRN milky toner',p:'pdrn_toner'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'active',label:'Beginner retinol',p:'retinol',badge:'active',badgeText:'retinoid'},
+      {type:'seal',label:'Cicaplast',p:'cicaplast'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'}
     ],
-    mask: null
+    mask:null
   },
-  3: { // Thursday
-    am: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'active', label:'Vitamin C serum', p:'vitc', badge:'active', badgeText:'antioxidant'},
-      {type:'hydrate', label:'PDRN milky toner', p:'pdrn_toner', tip:'Used as a hydrating essence step here — great PDRN + vitamin C pairing for glow.'},
-      {type:'hydrate', label:'Niacinamide', p:'niac'},
-      {type:'hydrate', label:'Phytomucin serum', p:'phyto'},
-      {type:'hydrate', label:'Caffeine undereye', p:'caffeine', badge:'eye', badgeText:'eye'},
-      {type:'hydrate', label:'PDRN eye cream', p:'pdrn_eye', badge:'eye', badgeText:'eye'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
-      {type:'protect', label:'SPF — last step!', p:'spf'},
+  3:{
+    am:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'active',label:'Vitamin C serum',p:'vitc',badge:'active',badgeText:'antioxidant'},
+      {type:'hydrate',label:'PDRN milky toner',p:'pdrn_toner',tip:'Used as a hydrating essence step here — great PDRN + vitamin C pairing for glow.'},
+      {type:'hydrate',label:'Niacinamide',p:'niac'},
+      {type:'hydrate',label:'Phytomucin serum',p:'phyto'},
+      {type:'hydrate',label:'Caffeine undereye',p:'caffeine',badge:'eye',badgeText:'eye'},
+      {type:'hydrate',label:'PDRN eye cream',p:'pdrn_eye',badge:'eye',badgeText:'eye'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'},
+      {type:'protect',label:'SPF — last step!',p:'spf'}
     ],
-    pm: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'BHA/PHA toner', p:'bha', badge:'active', badgeText:'exfoliant', tip:'2nd BHA night this week — great for oily/clogged pores. Skip retinol tonight.'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'hydrate', label:'Niacinamide', p:'niac'},
-      {type:'seal', label:'Phytomucin serum', p:'phyto'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
+    pm:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'BHA/PHA toner',p:'bha',badge:'active',badgeText:'exfoliant',tip:'2nd BHA night this week — great for oily/clogged pores. Skip retinol tonight.'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'hydrate',label:'Niacinamide',p:'niac'},
+      {type:'seal',label:'Phytomucin serum',p:'phyto'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'}
     ],
-    mask: {text:'✨ Optional tonight: <strong>Medicube zero pore mud mask</strong> — use before your PM routine (on clean, dry skin for 10–15 min, then rinse). Follows BHA night perfectly for a deep-pore double cleanse moment. Do NOT use same night as retinol.'}
+    mask:{text:'✨ Optional tonight: <strong>Medicube zero pore mud mask</strong> — use before your PM routine (on clean, dry skin for 10–15 min, then rinse). Follows BHA night perfectly for a deep-pore double cleanse moment. Do NOT use same night as retinol.'}
   },
-  4: { // Friday
-    am: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'active', label:'Vitamin C serum', p:'vitc', badge:'active', badgeText:'antioxidant'},
-      {type:'hydrate', label:'Niacinamide', p:'niac'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'hydrate', label:'Caffeine undereye', p:'caffeine', badge:'eye', badgeText:'eye'},
-      {type:'hydrate', label:'PDRN eye cream', p:'pdrn_eye', badge:'eye', badgeText:'eye'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
-      {type:'protect', label:'SPF — last step!', p:'spf'},
+  4:{
+    am:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'active',label:'Vitamin C serum',p:'vitc',badge:'active',badgeText:'antioxidant'},
+      {type:'hydrate',label:'Niacinamide',p:'niac'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'hydrate',label:'Caffeine undereye',p:'caffeine',badge:'eye',badgeText:'eye'},
+      {type:'hydrate',label:'PDRN eye cream',p:'pdrn_eye',badge:'eye',badgeText:'eye'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'},
+      {type:'protect',label:'SPF — last step!',p:'spf'}
     ],
-    pm: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'PDRN milky toner', p:'pdrn_toner'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'active', label:'Beginner retinol', p:'retinol', badge:'active', badgeText:'retinoid'},
-      {type:'seal', label:'Cicaplast', p:'cicaplast'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
+    pm:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'PDRN milky toner',p:'pdrn_toner'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'active',label:'Beginner retinol',p:'retinol',badge:'active',badgeText:'retinoid'},
+      {type:'seal',label:'Cicaplast',p:'cicaplast'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'}
     ],
-    mask: {text:'✨ Optional tonight: <strong>Medicube collagen night wrapping mask</strong> — apply as final step after moisturizer. Great weekend-prep recovery mask on a retinol night — collagen + sealing combo.'}
+    mask:{text:'✨ Optional tonight: <strong>Medicube collagen night wrapping mask</strong> — apply as final step after moisturizer. Great weekend-prep recovery mask on a retinol night.'}
   },
-  5: { // Saturday
-    am: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'BHA/PHA toner', p:'bha', badge:'active', badgeText:'exfoliant', tip:'Weekend glow prep — BHA clears pores for a dewy base.'},
-      {type:'active', label:'Vitamin C serum', p:'vitc', badge:'active', badgeText:'antioxidant'},
-      {type:'hydrate', label:'PDRN milky toner', p:'pdrn_toner', tip:'Used as essence after Vit C — PDRN + Vit C glow pairing.'},
-      {type:'hydrate', label:'Niacinamide', p:'niac'},
-      {type:'hydrate', label:'Phytomucin serum', p:'phyto'},
-      {type:'hydrate', label:'Caffeine undereye', p:'caffeine', badge:'eye', badgeText:'eye'},
-      {type:'hydrate', label:'PDRN eye cream', p:'pdrn_eye', badge:'eye', badgeText:'eye'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
-      {type:'protect', label:'SPF — last step!', p:'spf'},
+  5:{
+    am:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'BHA/PHA toner',p:'bha',badge:'active',badgeText:'exfoliant',tip:'Weekend glow prep — BHA clears pores for a dewy base.'},
+      {type:'active',label:'Vitamin C serum',p:'vitc',badge:'active',badgeText:'antioxidant'},
+      {type:'hydrate',label:'PDRN milky toner',p:'pdrn_toner',tip:'Used as essence after Vit C — PDRN + Vit C glow pairing.'},
+      {type:'hydrate',label:'Niacinamide',p:'niac'},
+      {type:'hydrate',label:'Phytomucin serum',p:'phyto'},
+      {type:'hydrate',label:'Caffeine undereye',p:'caffeine',badge:'eye',badgeText:'eye'},
+      {type:'hydrate',label:'PDRN eye cream',p:'pdrn_eye',badge:'eye',badgeText:'eye'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'},
+      {type:'protect',label:'SPF — last step!',p:'spf'}
     ],
-    pm: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'PDRN milky toner', p:'pdrn_toner'},
-      {type:'active', label:'Niacinamide', p:'niac'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'seal', label:'Phytomucin serum', p:'phyto'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
+    pm:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'PDRN milky toner',p:'pdrn_toner'},
+      {type:'active',label:'Niacinamide',p:'niac'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'seal',label:'Phytomucin serum',p:'phyto'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'}
     ],
-    mask: {text:'✨ Saturday glow night: <strong>Glow Recipe AHA overnight mask</strong> — apply as your very last step after moisturizer. This is your AHA exfoliant mask, so skip retinol tonight. Wake up glowing. Also a great night for <strong>PDRN pink caffeine collagen eye patches</strong> while the mask works!'}
+    mask:{text:'✨ Saturday glow night: <strong>Glow Recipe AHA overnight mask</strong> — apply as your very last step after moisturizer. Skip retinol tonight. Wake up glowing. Also a great night for <strong>PDRN pink caffeine collagen eye patches</strong> while the mask works!'}
   },
-  6: { // Sunday
-    am: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'active', label:'Vitamin C serum', p:'vitc', badge:'active', badgeText:'antioxidant'},
-      {type:'hydrate', label:'PDRN milky toner', p:'pdrn_toner'},
-      {type:'hydrate', label:'Niacinamide', p:'niac'},
-      {type:'hydrate', label:'Hyaluronic acid', p:'ha'},
-      {type:'hydrate', label:'Phytomucin serum', p:'phyto'},
-      {type:'hydrate', label:'Caffeine undereye', p:'caffeine', badge:'eye', badgeText:'eye'},
-      {type:'hydrate', label:'PDRN eye cream', p:'pdrn_eye', badge:'eye', badgeText:'eye'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
-      {type:'protect', label:'SPF — last step!', p:'spf'},
+  6:{
+    am:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'active',label:'Vitamin C serum',p:'vitc',badge:'active',badgeText:'antioxidant'},
+      {type:'hydrate',label:'PDRN milky toner',p:'pdrn_toner'},
+      {type:'hydrate',label:'Niacinamide',p:'niac'},
+      {type:'hydrate',label:'Hyaluronic acid',p:'ha'},
+      {type:'hydrate',label:'Phytomucin serum',p:'phyto'},
+      {type:'hydrate',label:'Caffeine undereye',p:'caffeine',badge:'eye',badgeText:'eye'},
+      {type:'hydrate',label:'PDRN eye cream',p:'pdrn_eye',badge:'eye',badgeText:'eye'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'},
+      {type:'protect',label:'SPF — last step!',p:'spf'}
     ],
-    pm: [
-      {type:'cleanse', label:'Cleanse', p:'wash'},
-      {type:'prep', label:'PDRN milky toner', p:'pdrn_toner'},
-      {type:'active', label:'Beginner retinol', p:'retinol', badge:'active', badgeText:'retinoid', tip:'4th retinol session of the week if tolerance allows. Skip if skin feels irritated and do a rest night instead.'},
-      {type:'seal', label:'Cicaplast', p:'cicaplast'},
-      {type:'seal', label:'Cetaphil moisturizer', p:'cetaphil'},
+    pm:[
+      {type:'cleanse',label:'Cleanse',p:'wash'},
+      {type:'prep',label:'PDRN milky toner',p:'pdrn_toner'},
+      {type:'active',label:'Beginner retinol',p:'retinol',badge:'active',badgeText:'retinoid',tip:'4th retinol session of the week if tolerance allows. Skip if skin feels irritated and do a rest night instead.'},
+      {type:'seal',label:'Cicaplast',p:'cicaplast'},
+      {type:'seal',label:'Cetaphil moisturizer',p:'cetaphil'}
     ],
-    mask: {text:'🌿 Rest check: if your skin feels irritated from the week, skip retinol tonight and do a <strong>Medicube PDRN jelly overnight mask</strong> instead for a deep recovery session.'}
+    mask:{text:'🌿 Rest check: if your skin feels irritated from the week, skip retinol tonight and do a <strong>Medicube PDRN jelly overnight mask</strong> instead for a deep recovery session.'}
   }
 };
 
-const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-let currentDay = 0, currentAMPM = 'am';
+var C={cleanse:'#7F77DD',prep:'#1D9E75',active:'#BA7517',hydrate:'#378ADD',seal:'#D4537E',protect:'#639922'};
+var CT={cleanse:'#3C3489',prep:'#085041',active:'#633806',hydrate:'#0C447C',seal:'#72243E',protect:'#27500A'};
+var currentDay=0,currentAMPM='am';
 
-function setDay(d) {
-  currentDay = d;
-  document.querySelectorAll('.day-tab').forEach((t,i)=>t.classList.toggle('active',i===d));
+function setDay(d){
+  currentDay=d;
+  document.querySelectorAll('.day-tab').forEach(function(t,i){t.classList.toggle('active',i===d)});
   render();
 }
-function setAMPM(v) {
-  currentAMPM = v;
-  document.querySelectorAll('.ampm-tab').forEach((t,i)=>t.classList.toggle('active', (i===0&&v==='am')||(i===1&&v==='pm')));
+function setAMPM(v){
+  currentAMPM=v;
+  document.querySelectorAll('.ampm-tab').forEach(function(t,i){t.classList.toggle('active',(i===0&&v==='am')||(i===1&&v==='pm'))});
   render();
 }
-
-function render() {
-  const routine = ROUTINES[currentDay][currentAMPM];
-  const mask = ROUTINES[currentDay].mask;
-  const list = document.getElementById('routine-list');
-  const maskArea = document.getElementById('mask-area');
-
-  list.innerHTML = routine.map((step, i) => {
-    const prod = PRODUCTS[step.p];
-    const tipText = step.tip || prod.tip;
-    const col = C[step.type];
-    const colT = CT[step.type];
-    const badge = step.badge ? `<span class="badge badge-${step.badge}">${step.badgeText}</span>` : '';
-    return `<div class="step">
-      <div class="step-num" style="background:${col}20;color:${colT}">${i+1}</div>
-      <div class="step-body">
-        <div class="step-name">${step.label}${badge}</div>
-        <div class="step-product">${prod.name}</div>
-        <div class="step-tip">${tipText}</div>
-      </div>
-    </div>`;
+function render(){
+  var routine=ROUTINES[currentDay][currentAMPM];
+  var mask=ROUTINES[currentDay].mask;
+  var list=document.getElementById('routine-list');
+  var maskArea=document.getElementById('mask-area');
+  list.innerHTML=routine.map(function(step,i){
+    var prod=PRODUCTS[step.p];
+    var tipText=step.tip||prod.tip;
+    var col=C[step.type];
+    var colT=CT[step.type];
+    var badge=step.badge?'<span class="badge badge-'+step.badge+'">'+step.badgeText+'</span>':'';
+    return '<div class="step"><div class="step-num" style="background:'+col+'22;color:'+colT+'">'+(i+1)+'</div><div class="step-body"><div class="step-name">'+step.label+badge+'</div><div class="step-product">'+prod.name+'</div><div class="step-tip">'+tipText+'</div></div></div>';
   }).join('');
-
-  maskArea.innerHTML = mask
-    ? `<div class="mask-note">${mask.text}</div>`
-    : '';
+  maskArea.innerHTML=mask?'<div class="mask-note">'+mask.text+'</div>':'';
 }
-
 render();
 </script>
+</body>
+</html>
